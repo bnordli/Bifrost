@@ -1,9 +1,9 @@
 ﻿using System.Web;
 using System.Web.Routing;
 using Bifrost.Configuration;
-using Web.Domain.HumanResources.Foos;
-using Bifrost.Web.Services;
 using Bifrost.Read;
+using Bifrost.Web.Services;
+using Web.Domain.HumanResources.Foos;
 using Web.Read.HumanResources.Employees;
 
 namespace Web
@@ -91,8 +91,7 @@ namespace Web
                         w.NamespaceMapper.Add(string.Format("{0}.**.", baseNamespace), string.Format("{0}.Domain.**.", baseNamespace));
                         w.NamespaceMapper.Add(string.Format("{0}.**.", baseNamespace), string.Format("{0}.Read.**.", baseNamespace));
                         w.NamespaceMapper.Add(string.Format("{0}.**.", baseNamespace), string.Format("{0}.**.", baseNamespace));
-					})
-                .WithMimir();
+					});
 
             RouteTable.Routes.AddService<SecuredService>();
         }

@@ -10,9 +10,6 @@
     <Name>Bifrost.FluentValidation</Name>
     <Name>Bifrost.JavaScript</Name>
     <Name>Bifrost.JSON</Name>
-    <Name>Bifrost.Mimir.Domain</Name>
-    <Name>Bifrost.Mimir.Events</Name>
-    <Name>Bifrost.Mimir.EventViewer</Name>
     <Name>Bifrost.MongoDB</Name>
     <Name>Bifrost.MSpec</Name>
     <Name>Bifrost.NHibernate</Name>

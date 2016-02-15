@@ -50,7 +50,7 @@ namespace Bifrost.Events
         public MigrationLevelOutOfRangeException(string message, Exception innerException) : base(message,innerException)
         { }
 
-#if(!SILVERLIGHT && !NETFX_CORE)
+#if(!NETFX_CORE)
         /// <summary>
         /// Initializes a <see cref="MigrationLevelOutOfRangeException">MigrationLevelOutOfRangeException</see> for serialization
         /// </summary>

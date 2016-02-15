@@ -48,7 +48,7 @@ namespace Bifrost.Events
         public NotAMigratedEventTypeException(string message, Exception innerException) : base(message,innerException)
         { }
 
-#if(!SILVERLIGHT && !NETFX_CORE)
+#if(!NETFX_CORE)
         /// <summary>
         /// Initializes a <see cref="NotAMigratedEventTypeException">NotAMigratedEventTypeException</see> for serialization
         /// </summary>

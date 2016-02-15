@@ -232,15 +232,8 @@ namespace Bifrost.Extensions
         /// <returns></returns>
         public static bool ImplementsOpenGeneric(this Type type, Type openGenericType)
         {
-
-#if(SILVERLIGHT)
-            var openGenericTypeInfo = openGenericType;
-            var typeInfo = type;
-#else
             var openGenericTypeInfo = openGenericType.GetTypeInfo();
             var typeInfo = type.GetTypeInfo();
-#endif
-
             return typeInfo.GetInterfaces()
                 .Where(i => i.IsGenericType) // Probably doesn't compile on NETFX_CORE. 
                 .Where(i => i.GetGenericTypeDefinition() == openGenericTypeInfo)

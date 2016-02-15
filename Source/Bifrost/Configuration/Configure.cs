@@ -23,12 +23,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-#if(SILVERLIGHT)
-using System.Windows;
-using _Assembly = System.Reflection.Assembly;
-#else
 using System.Runtime.InteropServices;
-#endif
 
 
 #if(NETFX_CORE)
@@ -79,22 +74,12 @@ namespace Bifrost.Configuration
         /// Configure by letting Bifrost discover anything that implements the discoverable configuration interfaces
         /// </summary>
         /// <returns></returns>
-#if (SILVERLIGHT)
-        public static Configure DiscoverAndConfigure(Action<AssembliesConfigurationBuilder> assembliesConfigurationBuilderCallback=null)
-#else
         public static Configure DiscoverAndConfigure(Action<AssembliesConfigurationBuilder> assembliesConfigurationBuilderCallback = null, IEnumerable<ICanProvideAssemblies> additionalAssemblyProviders = null)
-#endif
         {
             IContractToImplementorsMap contractToImplementorsMap;
             var assembliesConfigurationBuilder = BuildAssembliesConfigurationIfCallbackDefined(assembliesConfigurationBuilderCallback);
 
             contractToImplementorsMap = new ContractToImplementorsMap();
-#if (SILVERLIGHT)
-            var assemblyProvider = new AssemblyProvider();
-            var assembliesConfiguration = new AssembliesConfiguration(assembliesConfigurationBuilder.RuleBuilder);
-#else
-
-
             var executingAssembly = Assembly.GetExecutingAssembly();
             contractToImplementorsMap.Feed(executingAssembly.GetTypes());
             var assemblySpecifiers = new AssemblySpecifiers(contractToImplementorsMap, new TypeFinder(), assembliesConfigurationBuilder.RuleBuilder);
@@ -115,7 +100,6 @@ namespace Bifrost.Configuration
                 new AssemblyUtility(),
                 assemblySpecifiers,
                 contractToImplementorsMap);
-#endif
             var assemblies = assemblyProvider.GetAll(); 
             
             var canCreateContainerType = DiscoverCanCreateContainerType(assemblies);
@@ -248,11 +232,7 @@ namespace Bifrost.Configuration
                 () => DefaultStorage.Initialize(Container)
             };
 
-#if (SILVERLIGHT)
-            initializers.ForEach(initializer => initializer());
-#else
             Parallel.ForEach(initializers, initializator => initializator());
-#endif
             ConfigurationDone();
         }
 #pragma warning restore 1591 // Xml Comments

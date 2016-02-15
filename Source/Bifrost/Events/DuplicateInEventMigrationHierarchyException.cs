@@ -51,7 +51,7 @@ namespace Bifrost.Events
 			: base(message, innerException)
         { }
 
-#if(!SILVERLIGHT && !NETFX_CORE)
+#if(!NETFX_CORE)
         /// <summary>
         /// Initializes an instance of <see cref="DuplicateInEventMigrationHierarchyException"/> for serialization
         /// </summary>

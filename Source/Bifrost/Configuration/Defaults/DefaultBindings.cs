@@ -46,10 +46,8 @@ namespace Bifrost.Configuration.Defaults
 		public void Initialize(IContainer container)
         {
             container.Bind(container);
-#if(!SILVERLIGHT)
             container.Bind<_AppDomain>(AppDomain.CurrentDomain);
             container.Bind<IContractToImplementorsMap>(_contractToImplentorsMap);
-#endif
             container.Bind<AssembliesConfiguration>(_assembliesConfiguration);
             container.Bind<IAssemblyProvider>(_assemblyProvider);
             container.Bind<IAssemblies>(typeof(global::Bifrost.Execution.Assemblies), BindingLifecycle.Singleton);

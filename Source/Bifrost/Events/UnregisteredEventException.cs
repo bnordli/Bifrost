@@ -49,7 +49,7 @@ namespace Bifrost.Events
         public UnregisteredEventException(string message, Exception innerException) : base(message,innerException)
         { }
 
-#if(!SILVERLIGHT && !NETFX_CORE)
+#if(!NETFX_CORE)
         /// <summary>
         /// Initializes a <see cref="UnregisteredEventException"/> for serialization
         /// </summary>

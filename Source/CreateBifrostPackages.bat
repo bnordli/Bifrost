@@ -21,7 +21,6 @@ set version=%1
 %nuget% pack Bifrost.MongoDB\Bifrost.MongoDB.nuspec -Symbols -Version %version%
 %nuget% pack Bifrost.DocumentDB\Bifrost.DocumentDB.nuspec -Symbols -Version %version%
 %nuget% pack Bifrost.NHibernate\Bifrost.NHibernate.nuspec -Symbols -Version %version%
-%nuget% pack Bifrost.Mimir.Web\Bifrost.Mimir.nuspec -Version %version%
 %nuget% pack Bifrost.Default\Bifrost.Default.nuspec -Version %version%
 %nuget% pack Bifrost.QuickStart\Bifrost.QuickStart.nuspec -Version %version%
 %nuget% pack Bifrost.MSpec\Bifrost.MSpec.nuspec -Version %version%

@@ -20,8 +20,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Web;
-using Bifrost.Configuration;
-using Bifrost.Web.Assets;
 
 namespace Bifrost.Web.Applications
 {
@@ -92,8 +90,6 @@ namespace Bifrost.Web.Applications
                 context.Response.ContentType = "text/javascript";
             if (url.Contains(".css"))
                 context.Response.ContentType = "text/css";
-            if (url.Contains(".xap"))
-                context.Response.ContentType = "application/x-silverlight-app";
 
             context.Response.Cache.SetCacheability(HttpCacheability.NoCache);
 

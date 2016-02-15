@@ -54,7 +54,7 @@ namespace Bifrost.Sagas.Exceptions
         {
         }
 
-#if(!SILVERLIGHT && !NETFX_CORE)
+#if(!NETFX_CORE)
         /// <summary>
         /// Initializes an <see cref="InvalidSagaStateTransitionException">InvalidSagaStateTransitionException</see> for serialization
         /// </summary>

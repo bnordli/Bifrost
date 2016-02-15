@@ -19,10 +19,6 @@
 
 using Bifrost.Execution;
 using Ninject.Syntax;
-#if(!SILVERLIGHT)
-using Ninject.Web.Common;
-#endif
-
 
 namespace Bifrost.Ninject
 {
@@ -45,11 +41,6 @@ namespace Bifrost.Ninject
 					syntax.InSingletonScope();
 					break;
 
-#if(!SILVERLIGHT)
-				case BindingLifecycle.Request:
-					syntax.InRequestScope();
-					break;
-#endif
 				case BindingLifecycle.Thread:
 					syntax.InThreadScope();
 					break;
