@@ -22,10 +22,6 @@ using System.Linq;
 using Bifrost.Execution;
 using Bifrost.Globalization;
 
-#if(NETFX_CORE)
-using System.Reflection;
-#endif
-
 namespace Bifrost.Events
 {
     /// <summary>
@@ -169,19 +165,11 @@ namespace Bifrost.Events
             foreach (var eventSubscriberType in eventSubscriberTypes)
             {
                 var subscriptions = (from m in 
-#if(NETFX_CORE)
-                                       eventSubscriberType.GetTypeInfo().DeclaredMethods
-#else
                                        eventSubscriberType.GetMethods()
-#endif
                                   where m.Name == ProcessMethodInvoker.ProcessMethodName &&
                                         m.GetParameters().Length == 1 &&
                                         typeof(IEvent)
-#if(NETFX_CORE)
-                                            .GetTypeInfo().IsAssignableFrom(m.GetParameters()[0].ParameterType.GetTypeInfo())
-#else
                                             .IsAssignableFrom(m.GetParameters()[0].ParameterType)
-#endif
                                   select new EventSubscription
                                   {
                                       Id = Guid.Empty,

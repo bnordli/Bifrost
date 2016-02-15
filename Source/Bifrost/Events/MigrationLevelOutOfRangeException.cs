@@ -50,7 +50,6 @@ namespace Bifrost.Events
         public MigrationLevelOutOfRangeException(string message, Exception innerException) : base(message,innerException)
         { }
 
-#if(!NETFX_CORE)
         /// <summary>
         /// Initializes a <see cref="MigrationLevelOutOfRangeException">MigrationLevelOutOfRangeException</see> for serialization
         /// </summary>
@@ -59,6 +58,5 @@ namespace Bifrost.Events
         protected MigrationLevelOutOfRangeException(SerializationInfo serializationInfo, StreamingContext streamingContext)
             : base(serializationInfo,streamingContext)
         {}
-#endif
     }
 }

@@ -54,7 +54,6 @@ namespace Bifrost.Sagas.Exceptions
         {
         }
 
-#if(!NETFX_CORE)
         /// <summary>
         /// Initializes an <see cref="InvalidSagaStateTransitionException">InvalidSagaStateTransitionException</see> for serialization
         /// </summary>
@@ -64,6 +63,5 @@ namespace Bifrost.Sagas.Exceptions
             : base(info, context)
         {
         }
-#endif
     }
 }

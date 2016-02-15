@@ -19,14 +19,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-#if(NETFX_CORE)
-using Windows.UI.Xaml;
-#else
 using System.Windows;
-#endif
 using Bifrost.Extensions;
 
 namespace Bifrost.Values
@@ -54,11 +49,7 @@ namespace Bifrost.Values
 		public static DependencyProperty GetDependencyPropertyByPropertyName(this DependencyObject obj, string propertyName)
 		{
 			var dependencyPropertyName = string.Format("{0}Property", propertyName);
-#if(NETFX_CORE)
-            var dependencyProperty = obj.GetType().GetTypeInfo().DeclaredFields.Single(f => f.Name == dependencyPropertyName && f.IsPublic && f.IsStatic);
-#else 
 			var dependencyProperty = obj.GetType().GetField(dependencyPropertyName, BindingFlags.Static | BindingFlags.Public);
-#endif
 			if( null == dependencyProperty )
 			{
 				throw new ArgumentException("Property '"+propertyName+"' does not exist");

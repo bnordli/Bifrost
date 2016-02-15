@@ -18,11 +18,7 @@
 #endregion
 using System;
 using System.Linq.Expressions;
-#if(NETFX_CORE)
-using Windows.UI.Xaml;
-#else
 using System.Windows;
-#endif
 using Bifrost.Extensions;
 
 namespace Bifrost.Values

@@ -17,9 +17,6 @@
 //
 #endregion
 using System;
-#if(NETFX_CORE)
-using System.Reflection;
-#endif
 
 namespace Bifrost.Extensions
 {
@@ -37,14 +34,7 @@ namespace Bifrost.Extensions
         TypeInfo()
         {
             var type = typeof(T); 
-            HasDefaultConstructor = 
-#if(NETFX_CORE)
-                type.GetTypeInfo().IsValueType ||
-                type.HasDefaultConstructor();
-#else
-                type.IsValueType ||
-                type.GetConstructor(new Type[0]) != null ;
-#endif
+            HasDefaultConstructor = type.IsValueType || type.GetConstructor(new Type[0]) != null ;
         }
 
 #pragma warning disable 1591 // Xml Comments

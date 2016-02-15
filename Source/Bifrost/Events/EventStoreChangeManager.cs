@@ -19,9 +19,6 @@
 using System;
 using System.Collections.Generic;
 using Bifrost.Execution;
-#if(NETFX_CORE)
-using System.Reflection;
-#endif
 
 namespace Bifrost.Events
 {
@@ -62,13 +59,7 @@ namespace Bifrost.Events
 
         void ThrowIfTypeIsNotANotifier(Type type)
         {
-            if (!typeof(IEventStoreChangeNotifier)
-#if(NETFX_CORE)
-                .GetTypeInfo().IsAssignableFrom(type.GetTypeInfo())
-#else
-                .IsAssignableFrom(type)
-#endif                
-                )
+            if (!typeof(IEventStoreChangeNotifier).IsAssignableFrom(type))
                 throw new ArgumentException(string.Format("Type '{0}' must implement '{1}'", type.Name, typeof(IEventStoreChangeNotifier).Name));
         }
     }

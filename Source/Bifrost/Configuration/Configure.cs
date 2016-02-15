@@ -22,21 +22,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-
 using System.Runtime.InteropServices;
-
-
-#if(NETFX_CORE)
-using Windows.Storage;
-#endif
 using System.Threading.Tasks;
+using Bifrost.Configuration.Assemblies;
 using Bifrost.Configuration.Defaults;
+using Bifrost.Diagnostics;
 using Bifrost.Execution;
 using Bifrost.Extensions;
-using Bifrost.Diagnostics;
-using Bifrost.Configuration.Assemblies;
-
-
 
 namespace Bifrost.Configuration
 {
@@ -280,13 +272,8 @@ namespace Bifrost.Configuration
             Type createContainerType = null;
             foreach (var assembly in assemblies.ToArray())
             {
-#if (NETFX_CORE)
-                var type = assembly.DefinedTypes.Select(t => t.AsType()).Where(t => t.HasInterface(typeof(ICanCreateContainer))).SingleOrDefault();
-#else
                 var types = assembly.GetTypes().Where(t => t.HasInterface(typeof(ICanCreateContainer)));
                 var type = types.SingleOrDefault();
-                var a = types.ToArray();
-#endif
                 if (type != null)
                 {
                     ThrowIfAmbiguousMatchFoundForCanCreateContainer(createContainerType);

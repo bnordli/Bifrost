@@ -49,7 +49,6 @@ namespace Bifrost.Events
         public UnregisteredEventException(string message, Exception innerException) : base(message,innerException)
         { }
 
-#if(!NETFX_CORE)
         /// <summary>
         /// Initializes a <see cref="UnregisteredEventException"/> for serialization
         /// </summary>
@@ -58,6 +57,5 @@ namespace Bifrost.Events
         protected UnregisteredEventException(SerializationInfo serializationInfo, StreamingContext streamingContext)
             : base(serializationInfo,streamingContext)
         {}
-#endif
     }
 }

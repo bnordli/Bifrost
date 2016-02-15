@@ -51,7 +51,6 @@ namespace Bifrost.Events
 			: base(message, innerException)
         { }
 
-#if(!NETFX_CORE)
         /// <summary>
         /// Initializes an instance of <see cref="DuplicateInEventMigrationHierarchyException"/> for serialization
         /// </summary>
@@ -60,6 +59,5 @@ namespace Bifrost.Events
         protected DuplicateInEventMigrationHierarchyException(SerializationInfo serializationInfo, StreamingContext streamingContext)
             : base(serializationInfo,streamingContext)
         {}
-#endif
     }
 }

@@ -52,7 +52,6 @@ namespace Bifrost.Events
         {
         }
 
-#if(!NETFX_CORE)
         /// <summary>
         /// Initializes an <see cref="InvalidFastForwardException">InvalidFastForwardException</see> for serialization
         /// </summary>
@@ -62,6 +61,5 @@ namespace Bifrost.Events
             : base(info, context)
         {
         }
-#endif
     }
 }

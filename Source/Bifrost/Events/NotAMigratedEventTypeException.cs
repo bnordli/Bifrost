@@ -48,7 +48,6 @@ namespace Bifrost.Events
         public NotAMigratedEventTypeException(string message, Exception innerException) : base(message,innerException)
         { }
 
-#if(!NETFX_CORE)
         /// <summary>
         /// Initializes a <see cref="NotAMigratedEventTypeException">NotAMigratedEventTypeException</see> for serialization
         /// </summary>
@@ -57,6 +56,5 @@ namespace Bifrost.Events
         protected NotAMigratedEventTypeException(SerializationInfo serializationInfo, StreamingContext streamingContext)
             : base(serializationInfo,streamingContext)
         {}
-#endif
     }
 }

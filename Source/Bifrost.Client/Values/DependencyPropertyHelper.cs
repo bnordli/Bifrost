@@ -17,17 +17,10 @@
 //
 #endregion
 using System;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-
-using Bifrost.Extensions;
-#if(NETFX_CORE)
-using Windows.UI.Xaml;
-using Windows.UI.Core;
-#else
 using System.Windows;
-#endif
+using Bifrost.Extensions;
 
 namespace Bifrost.Values
 {
@@ -74,13 +67,8 @@ namespace Bifrost.Values
 			                                            			SetIsNotFirstSet(o,true);
 			                                            			Action a = () => propertyInfo.SetValue(o, e.NewValue, null);
 
-#if(NETFX_CORE)
-                                                                    if (o.Dispatcher.HasThreadAccess) a();
-                                                                    else o.Dispatcher.RunIdleAsync(ide => a());
-#else
 			                                            			if (o.Dispatcher.CheckAccess()) a();
 			                                            			else o.Dispatcher.BeginInvoke(a);
-#endif
 			                                            		}
 			                                            	});
 			return propertyMetadata;
@@ -114,11 +102,7 @@ namespace Bifrost.Values
 				propertyPath = string.Empty;
 				return null;
 			}
-#if(NETFX_CORE)
-            var fields = root.GetTypeInfo().DeclaredFields.Where(f => f.IsStatic && f.IsPublic);
-#else
 			var fields = root.GetFields(BindingFlags.Static | BindingFlags.Public);
-#endif
 			foreach (var field in fields)
 			{
 				if (field.Name.Contains(propertyName))
@@ -131,11 +115,7 @@ namespace Bifrost.Values
 				}
 			}
 
-#if(NETFX_CORE)
-            var baseType = root.GetTypeInfo().BaseType;
-#else
             var baseType = root.BaseType;
-#endif
 			var property = GetDependencyPropertyByPropertyName(baseType, propertyName, out propertyPath);
 			return property;
 		}
@@ -152,11 +132,7 @@ namespace Bifrost.Values
 			}
 			else
 			{
-#if(NETFX_CORE)
-                var property = fieldValue.GetType().GetTypeInfo().DeclaredProperties.Single(p => p.Name == "ActualDependencyProperty");
-#else
 				var property = fieldValue.GetType().GetProperty("ActualDependencyProperty");
-#endif
 				if (null != property)
 				{
 					var actualDependencyProperty = property.GetValue(fieldValue, null) as DependencyProperty;

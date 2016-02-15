@@ -20,14 +20,8 @@ using System.Collections.Generic;
 using System.Windows;
 
 
-#if(NETFX_CORE)
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-#else
 using System.Windows.Controls;
 using System.Windows.Media;
-#endif
 
 namespace Bifrost.VisualTree
 {
@@ -42,7 +36,6 @@ namespace Bifrost.VisualTree
                 return;
             }
 
-#if(!NETFX_CORE)
             var decorator = parent as Decorator;
             if (decorator != null)
             {
@@ -52,7 +45,6 @@ namespace Bifrost.VisualTree
                 }
                 return;
             }
-#endif
 
             var contentPresenter = parent as ContentPresenter;
             if (contentPresenter != null)

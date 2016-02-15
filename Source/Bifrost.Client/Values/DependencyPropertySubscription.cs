@@ -18,15 +18,9 @@
 #endregion
 
 using System.ComponentModel;
-#if(NETFX_CORE)
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using DependencyProperty = Windows.UI.Xaml.DependencyProperty;
-#else
 using System.Windows;
 using System.Windows.Data;
 using DependencyProperty = System.Windows.DependencyProperty;
-#endif
 
 namespace Bifrost.Values
 {

@@ -48,7 +48,6 @@ namespace Bifrost.Events
         public InvalidMigrationTypeException(string message, Exception innerException) : base(message,innerException)
         { }
 
-#if(!NETFX_CORE)
         /// <summary>
         /// Initializes a <see cref="InvalidMigrationTypeException">InvalidMigrationTypeException</see> for serialization
         /// </summary>
@@ -57,6 +56,5 @@ namespace Bifrost.Events
         protected InvalidMigrationTypeException(SerializationInfo serializationInfo, StreamingContext streamingContext)
             : base(serializationInfo,streamingContext)
         {}
-#endif
     }
 }
