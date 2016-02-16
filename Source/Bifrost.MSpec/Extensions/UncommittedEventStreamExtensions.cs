@@ -9,7 +9,7 @@ namespace Bifrost.MSpec.Extensions
     public static class UncommittedEventStreamExtensions
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T">The type of the <see cref="Event"/> to assert should be present</typeparam>
         /// <param name="uncommittedEventStream">The <see cref="UncommittedEventStream"/> to search.</param>

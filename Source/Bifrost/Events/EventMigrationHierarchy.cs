@@ -5,7 +5,7 @@
 // Licensed under the MIT License (http://opensource.org/licenses/MIT)
 //
 // You may not use this file except in compliance with the License.
-// You may obtain a copy of the license at 
+// You may obtain a copy of the license at
 //
 //   http://github.com/dolittle/Bifrost/blob/master/MIT-LICENSE.txt
 //
@@ -29,22 +29,22 @@ namespace Bifrost.Events
     {
         private readonly List<Type> _migrationLevels;
 
-		/// <summary>
-		/// Gets the logical event type
-		/// </summary>
+        /// <summary>
+        /// Gets the logical event type
+        /// </summary>
         public Type LogicalEvent { get; private set; }
 
-		/// <summary>
-		/// Gets the migration level of the hierarchy
-		/// </summary>
+        /// <summary>
+        /// Gets the migration level of the hierarchy
+        /// </summary>
         public int MigrationLevel
         {
             get { return _migrationLevels.Count - 1; }
         }
 
-		/// <summary>
-		/// Gets the types in the migration hierarchy
-		/// </summary>
+        /// <summary>
+        /// Gets the types in the migration hierarchy
+        /// </summary>
         public IEnumerable<Type> MigratedTypes { get { return _migrationLevels.ToArray(); } }
 
         /// <summary>

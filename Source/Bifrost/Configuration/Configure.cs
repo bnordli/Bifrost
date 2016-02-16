@@ -5,7 +5,7 @@
 // Licensed under the MIT License (http://opensource.org/licenses/MIT)
 //
 // You may not use this file except in compliance with the License.
-// You may obtain a copy of the license at 
+// You may obtain a copy of the license at
 //
 //   http://github.com/dolittle/Bifrost/blob/master/MIT-LICENSE.txt
 //
@@ -35,7 +35,7 @@ namespace Bifrost.Configuration
     /// <summary>
     /// Represents the default <see cref="IConfigure"/> type
     /// </summary>
-	public class Configure : IConfigure
+    public class Configure : IConfigure
     {
         static readonly object InstanceLock = new object();
 
@@ -58,7 +58,7 @@ namespace Bifrost.Configuration
 
             defaultBindings.Initialize(Container);
             defaultConventions.Initialize();
-            
+
             InitializeProperties();
         }
 
@@ -88,12 +88,12 @@ namespace Bifrost.Configuration
             var assembliesConfiguration = new AssembliesConfiguration(assembliesConfigurationBuilder.RuleBuilder);
             var assemblyProvider = new AssemblyProvider(
                 assemblyProviders,
-                new AssemblyFilters(assembliesConfiguration), 
+                new AssemblyFilters(assembliesConfiguration),
                 new AssemblyUtility(),
                 assemblySpecifiers,
                 contractToImplementorsMap);
-            var assemblies = assemblyProvider.GetAll(); 
-            
+            var assemblies = assemblyProvider.GetAll();
+
             var canCreateContainerType = DiscoverCanCreateContainerType(assemblies);
             ThrowIfCanCreateContainerNotFound(canCreateContainerType);
             ThrowIfCanCreateContainerDoesNotHaveDefaultConstructor(canCreateContainerType);
@@ -188,18 +188,18 @@ namespace Bifrost.Configuration
         public ITasksConfiguration Tasks { get; private set; }
         public IViewsConfiguration Views { get; private set; }
         public IBindingConventionManager ConventionManager { get; private set; }
-		public ISagasConfiguration Sagas { get; private set; }
-		public ISerializationConfiguration Serialization { get; private set; }
+        public ISagasConfiguration Sagas { get; private set; }
+        public ISerializationConfiguration Serialization { get; private set; }
         public IFrontendConfiguration Frontend { get; private set; }
         public ICallContextConfiguration CallContext { get; private set; }
         public IExecutionContextConfiguration ExecutionContext { get; private set; }
         public ISecurityConfiguration Security { get; private set; }
         public AssembliesConfiguration Assemblies { get; private set; }
         public IQualityAssurance QualityAssurance { get; private set; }
-		public CultureInfo Culture { get; set; }
-		public CultureInfo UICulture { get; set; }
+        public CultureInfo Culture { get; set; }
+        public CultureInfo UICulture { get; set; }
 
-        public BindingLifecycle DefaultLifecycle 
+        public BindingLifecycle DefaultLifecycle
         {
             get { return Container.DefaultLifecycle; }
             set { Container.DefaultLifecycle = value; }
@@ -209,7 +209,7 @@ namespace Bifrost.Configuration
         {
             ConfigureFromCanConfigurables();
             InitializeCulture();
-            
+
             var initializers = new Action[] {
                 () => Serialization.Initialize(Container),
                 () => Commands.Initialize(Container),
@@ -237,8 +237,8 @@ namespace Bifrost.Configuration
             Tasks = Container.Get<ITasksConfiguration>();
             Views = Container.Get<IViewsConfiguration>();
             ConventionManager = Container.Get<IBindingConventionManager>();
-        	Sagas = Container.Get<ISagasConfiguration>();
-			Serialization = Container.Get<ISerializationConfiguration>();
+            Sagas = Container.Get<ISagasConfiguration>();
+            Serialization = Container.Get<ISerializationConfiguration>();
             DefaultStorage = Container.Get<IDefaultStorageConfiguration>();
             Frontend = Container.Get<IFrontendConfiguration>();
             CallContext = Container.Get<ICallContextConfiguration>();
@@ -247,13 +247,13 @@ namespace Bifrost.Configuration
             QualityAssurance = Container.Get<IQualityAssurance>();
         }
 
-		void InitializeCulture()
-		{
-			if (Culture == null)
-				Culture = CultureInfo.InvariantCulture;
-			if (UICulture == null)
-				UICulture = CultureInfo.InvariantCulture;
-		}
+        void InitializeCulture()
+        {
+            if (Culture == null)
+                Culture = CultureInfo.InvariantCulture;
+            if (UICulture == null)
+                UICulture = CultureInfo.InvariantCulture;
+        }
 
         void ConfigureFromCanConfigurables()
         {
@@ -292,7 +292,7 @@ namespace Bifrost.Configuration
             return builder;
         }
 
-        
+
         static void ThrowIfAmbiguousMatchFoundForCanCreateContainer(Type createContainerType)
         {
             if (createContainerType != null)

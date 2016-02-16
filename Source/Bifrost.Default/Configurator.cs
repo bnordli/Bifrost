@@ -38,7 +38,7 @@ namespace Web
                     //.UsingDocumentDB(e => e.WithUrl("").WithDefaultDatabase("QuickStart").UsingAuthorizationKey(""))
 
                 .Frontend
-					.Web(w=> {
+                    .Web(w=> {
                         w.AsSinglePageApplication();
 
                         var baseNamespace = global::Bifrost.Configuration.Configure.Instance.EntryAssembly.GetName().Name;

@@ -5,7 +5,7 @@
 // Licensed under the MIT License (http://opensource.org/licenses/MIT)
 //
 // You may not use this file except in compliance with the License.
-// You may obtain a copy of the license at 
+// You may obtain a copy of the license at
 //
 //   http://github.com/dolittle/Bifrost/blob/master/MIT-LICENSE.txt
 //
@@ -47,7 +47,7 @@ namespace Bifrost.Events
         /// <param name="localizer">A <see cref="ILocalizer"/> for controlling localization while executing subscriptions</param>
         public EventSubscriptionManager(
             IEventSubscriptions subscriptions,
-            ITypeDiscoverer typeDiscoverer, 
+            ITypeDiscoverer typeDiscoverer,
             IContainer container,
             ILocalizer localizer)
         {
@@ -164,7 +164,7 @@ namespace Bifrost.Events
 
             foreach (var eventSubscriberType in eventSubscriberTypes)
             {
-                var subscriptions = (from m in 
+                var subscriptions = (from m in
                                        eventSubscriberType.GetMethods()
                                   where m.Name == ProcessMethodInvoker.ProcessMethodName &&
                                         m.GetParameters().Length == 1 &&

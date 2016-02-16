@@ -5,7 +5,7 @@
 // Licensed under the MIT License (http://opensource.org/licenses/MIT)
 //
 // You may not use this file except in compliance with the License.
-// You may obtain a copy of the license at 
+// You may obtain a copy of the license at
 //
 //   http://github.com/dolittle/Bifrost/blob/master/MIT-LICENSE.txt
 //
@@ -30,15 +30,15 @@ namespace Bifrost.ViewModels
     public class ViewModelService
     {
 
-		static IEnumerable<Assembly> CollectAssemblies()
-		{
-			var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-			var query = from a in assemblies
-						where !a.FullName.Contains("System.")
-						select a;
+        static IEnumerable<Assembly> CollectAssemblies()
+        {
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var query = from a in assemblies
+                        where !a.FullName.Contains("System.")
+                        select a;
 
-			return assemblies;
-		}
+            return assemblies;
+        }
 
 
         public static FindTypeByName TypeFinder = (string name) =>
@@ -59,7 +59,7 @@ namespace Bifrost.ViewModels
         public static void SetViewModel(FrameworkElement target, string viewModel)
         {
             var type = TypeFinder(viewModel);
-            
+
 
             /*
             var typeDiscoverer = App.Container.Get<ITypeDiscoverer>();

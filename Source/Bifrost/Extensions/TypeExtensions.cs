@@ -5,7 +5,7 @@
 // Licensed under the MIT License (http://opensource.org/licenses/MIT)
 //
 // You may not use this file except in compliance with the License.
-// You may obtain a copy of the license at 
+// You may obtain a copy of the license at
 //
 //   http://github.com/dolittle/Bifrost/blob/master/MIT-LICENSE.txt
 //
@@ -23,15 +23,15 @@ using System.Reflection;
 
 namespace Bifrost.Extensions
 {
-	/// <summary>
-	/// Provides a set of methods for working with <see cref="Type">types</see>
-	/// </summary>
-	public static class TypeExtensions
-	{
+    /// <summary>
+    /// Provides a set of methods for working with <see cref="Type">types</see>
+    /// </summary>
+    public static class TypeExtensions
+    {
         static HashSet<Type> AdditionalPrimitiveTypes = new HashSet<Type>
             {
                 typeof(decimal),typeof(string),typeof(Guid),typeof(DateTime),typeof(DateTimeOffset),typeof(TimeSpan)
-            }; 
+            };
 
         static HashSet<Type> NumericTypes = new HashSet<Type>
         {
@@ -143,17 +143,17 @@ namespace Bifrost.Extensions
         }
 
 
-		/// <summary>
-		/// Check if a type implements a specific interface
-		/// </summary>
-		/// <typeparam name="T">Interface to check for</typeparam>
-		/// <param name="type">Type to check</param>
-		/// <returns>True if the type implements the interface, false if not</returns>
-		public static bool HasInterface<T>(this Type type)
-		{
-		    var hasInterface = type.HasInterface(typeof (T));
-			return hasInterface;
-		}
+        /// <summary>
+        /// Check if a type implements a specific interface
+        /// </summary>
+        /// <typeparam name="T">Interface to check for</typeparam>
+        /// <param name="type">Type to check</param>
+        /// <returns>True if the type implements the interface, false if not</returns>
+        public static bool HasInterface<T>(this Type type)
+        {
+            var hasInterface = type.HasInterface(typeof (T));
+            return hasInterface;
+        }
 
         /// <summary>
         /// Check if a type implements a specific interface
@@ -239,23 +239,23 @@ namespace Bifrost.Extensions
                 .Where(t=>t != type && t != typeof(Object));
         }
 
-	    static IEnumerable<Type> BaseTypes(this Type type)
-	    {
-	        var currentType = type;
+        static IEnumerable<Type> BaseTypes(this Type type)
+        {
+            var currentType = type;
             while (currentType != null)
-	        {
-	            yield return currentType;
-	            currentType = currentType.BaseType;
-	        }
-	    }
+            {
+                yield return currentType;
+                currentType = currentType.BaseType;
+            }
+        }
 
-	    static IEnumerable<Type> ThisAndMaybeOpenType(Type type)
-	    {
-	        yield return type;
-	        if (type.IsGenericType && !type.ContainsGenericParameters)
-	        {
-	            yield return type.GetGenericTypeDefinition();
-	        }
-	    }
-	}
+        static IEnumerable<Type> ThisAndMaybeOpenType(Type type)
+        {
+            yield return type;
+            if (type.IsGenericType && !type.ContainsGenericParameters)
+            {
+                yield return type.GetGenericTypeDefinition();
+            }
+        }
+    }
 }

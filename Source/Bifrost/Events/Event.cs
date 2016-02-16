@@ -5,7 +5,7 @@
 // Licensed under the MIT License (http://opensource.org/licenses/MIT)
 //
 // You may not use this file except in compliance with the License.
-// You may obtain a copy of the license at 
+// You may obtain a copy of the license at
 //
 //   http://github.com/dolittle/Bifrost/blob/master/MIT-LICENSE.txt
 //
@@ -34,13 +34,13 @@ namespace Bifrost.Events
         public long Id { get; set; }
         public Guid CommandContext { get; set; }
         public string Name { get; set; }
-		public string CommandName { get; set; }
+        public string CommandName { get; set; }
         public Guid EventSourceId { get; set; }
-    	public string EventSource { get; set; }
-    	public EventSourceVersion Version { get; set; }
+        public string EventSource { get; set; }
+        public EventSourceVersion Version { get; set; }
         public string CausedBy { get; set; }
         public string Origin { get; set; }
-		public DateTime Occured { get; set; }
+        public DateTime Occured { get; set; }
 #pragma warning restore 1591 // Xml Comments
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Bifrost.Events
             Id = id;
             EventSourceId = eventSourceId;
             Name = GetType().Name;
-        	Occured = SystemClock.GetCurrentTime();
+            Occured = SystemClock.GetCurrentTime();
         }
 
         /// <summary>
@@ -87,11 +87,11 @@ namespace Bifrost.Events
         }
 
 #pragma warning disable 1591 // Xml Comments
-		public override int GetHashCode()
-		{
-			return base.GetHashCode();
-		}
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 #pragma warning restore 1591 // Xml Comments
 
-	}
+    }
 }

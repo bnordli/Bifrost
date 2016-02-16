@@ -5,7 +5,7 @@
 // Licensed under the MIT License (http://opensource.org/licenses/MIT)
 //
 // You may not use this file except in compliance with the License.
-// You may obtain a copy of the license at 
+// You may obtain a copy of the license at
 //
 //   http://github.com/dolittle/Bifrost/blob/master/MIT-LICENSE.txt
 //
@@ -23,11 +23,11 @@ using Bifrost.Execution;
 
 namespace Bifrost.Configuration.Defaults
 {
-	/// <summary>
-	/// Represents a <see cref="IDefaultBindings"/>
-	/// </summary>
+    /// <summary>
+    /// Represents a <see cref="IDefaultBindings"/>
+    /// </summary>
     public class DefaultBindings : IDefaultBindings
-	{
+    {
         AssembliesConfiguration _assembliesConfiguration;
         IAssemblyProvider _assemblyProvider;
         IContractToImplementorsMap _contractToImplentorsMap;
@@ -43,7 +43,7 @@ namespace Bifrost.Configuration.Defaults
         }
 
 #pragma warning disable 1591 // Xml Comments
-		public void Initialize(IContainer container)
+        public void Initialize(IContainer container)
         {
             container.Bind(container);
             container.Bind<_AppDomain>(AppDomain.CurrentDomain);
@@ -53,7 +53,7 @@ namespace Bifrost.Configuration.Defaults
             container.Bind<IAssemblies>(typeof(global::Bifrost.Execution.Assemblies), BindingLifecycle.Singleton);
             container.Bind<ITypeDiscoverer>(typeof(TypeDiscoverer), BindingLifecycle.Singleton);
             container.Bind<ITypeFinder>(typeof(TypeFinder), BindingLifecycle.Singleton);
-		}
+        }
 #pragma warning restore 1591 // Xml Comments
-	}
+    }
 }

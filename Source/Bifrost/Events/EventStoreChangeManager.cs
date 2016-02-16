@@ -5,7 +5,7 @@
 // Licensed under the MIT License (http://opensource.org/licenses/MIT)
 //
 // You may not use this file except in compliance with the License.
-// You may obtain a copy of the license at 
+// You may obtain a copy of the license at
 //
 //   http://github.com/dolittle/Bifrost/blob/master/MIT-LICENSE.txt
 //
@@ -49,11 +49,11 @@ namespace Bifrost.Events
 
         public void NotifyChanges(IEventStore eventStore, EventStream streamOfEvents)
         {
-            foreach( var notifierType in _notifiers ) 
+            foreach( var notifierType in _notifiers )
             {
                 var notifier = _container.Get(notifierType) as IEventStoreChangeNotifier;
                 notifier.Notify(eventStore, streamOfEvents);
-            }  
+            }
         }
 #pragma warning restore 1591 // Xml Comments
 
