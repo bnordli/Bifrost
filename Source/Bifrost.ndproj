@@ -71,7 +71,6 @@
   </FrameworkAssemblies>
   <Dirs>
     <Dir>C:\Windows\Microsoft.NET\Framework\v4.0.30319</Dir>
-    <Dir>C:\Windows\Microsoft.NET\Framework\v4.0.30319\WPF</Dir>
     <Dir>C:\Projects\Bifrost\Source\NDependOut\bin</Dir>
   </Dirs>
   <Report Kind="0" SectionsEnabled="45055" XslPath="" Flags="64512" />
