@@ -5,7 +5,6 @@
     <Name>Bifrost</Name>
     <Name>Bifrost.Autofac</Name>
     <Name>Bifrost.CommonServiceLocator</Name>
-    <Name>Bifrost.Content</Name>
     <Name>Bifrost.DocumentDB</Name>
     <Name>Bifrost.FluentValidation</Name>
     <Name>Bifrost.JavaScript</Name>
