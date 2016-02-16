@@ -147,6 +147,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Bifrost.Client.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
