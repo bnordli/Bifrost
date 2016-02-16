@@ -72,6 +72,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Common\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="for_ConceptTypeConverter\when_converting_from_json_to_concept_as_long.cs" />
     <Compile Include="for_ConceptTypeConverter\when_converting_from_json_to_concept_as_string.cs" />
     <Compile Include="for_ConceptTypeConverter\when_converting_from_json_to_concept_as_guid.cs" />

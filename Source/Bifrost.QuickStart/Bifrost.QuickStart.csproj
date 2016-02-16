@@ -163,6 +163,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Common\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Configurator.cs" />
     <Compile Include="Concepts\Persons\SocialSecurityNumber.cs" />
     <Compile Include="ContainerCreator.cs" />

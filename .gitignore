@@ -6,9 +6,7 @@ obj
 *.user
 Source/Documentation/DocumentX/*
 Documentation/build/**/*
-current_version.txt
 lastbuild.txt
-version.txt
 *.version
 _ReSharper.*
 packages

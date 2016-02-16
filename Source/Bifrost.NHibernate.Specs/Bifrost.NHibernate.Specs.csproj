@@ -73,6 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Common\CommonAssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Events\for_EventConverter\given\an_event_converter.cs" />
     <Compile Include="Events\for_EventConverter\when_converting_to_an_event_holder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

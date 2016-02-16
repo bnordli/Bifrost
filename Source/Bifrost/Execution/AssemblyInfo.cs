@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 //
 // Copyright (c) 2008-2015, Dolittle (http://www.dolittle.com)
 //
